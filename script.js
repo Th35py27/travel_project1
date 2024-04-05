@@ -79,9 +79,9 @@ function signup() {
 
 function login() {
     data = {
-        "name": document.getElementById("name").value,
-        "uid": document.getElementById("user").value,
-        "password": document.getElementById("pass").value,
+        "name": document.getElementById('name').value,
+        "uid": document.getElementById('user').value,
+        "password": document.getElementById('pass').value,
     }
     let OPTIONS = {
         method: 'POST',
@@ -103,6 +103,8 @@ function login() {
             console.log('All Cookies:', document.cookie);
             document.getElementById("error").innerHTML = ""
             const jwtCookie = getCookie('jwt');
+            userBody = "{" + "uid: " + document.getElementById('user').value + "," + " password: " + document.getElementById('pass').value + "}";
+            window.localStorage.setItem('name',document.getElementById('name'));
             if (jwtCookie) {
                 console.log('JWT Token:', jwtCookie);
             } else {
